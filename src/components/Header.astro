@@ -15,16 +15,14 @@
       ></path>
     </svg>
 
-    <a>Tienda de la Cata</a>
+    <a href="/">Tienda de la Cata</a>
     <span class="corazon">❤️</span>
   </div>
 
-  <div class="contenedorNav">
-    <nav>
-      <a href="">Como Comprar</a>
-      <a href="">Sobre Nosotros</a>
-    </nav>
-  </div>
+  <nav class="contenedorNav">
+    <a href="/ComoComprar/">Como Comprar</a>
+    <a href="/Nosotros/">Sobre Nosotros</a>
+  </nav>
 </header>
 
 <style>
@@ -48,11 +46,16 @@
   }
   .contenedorLogo {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
+    text-align: center;
     width: 15rem;
   }
   .contenedorNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
   }
   .logo {
     width: 34px;
