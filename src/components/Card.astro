@@ -13,40 +13,20 @@ const { title, valor } = Astro.props;
   </div>
   <div class="contenedorBtn">
     <a
-      class="btnComprar"
-      href={`https://api.whatsapp.com/send?phone=56973283737&text=${encodeURIComponent(`Quiero este producto: ${title} por ${valor}`)}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Comprar
-    </a>
-    <a
       class="btnAñadir"
       href={`https://api.whatsapp.com/send?phone=56973283737&text=${encodeURIComponent(`Quiero este producto: ${title} por ${valor}`)}`}
       target="_blank"
       rel="noopener noreferrer"
     >
-      Añadir
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="carrito"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-        ></path>
-      </svg>
+      Añadir al carrito
     </a>
   </div>
 </div>
 
 <style>
   .contenedorCard {
+    display: flex;
+    flex-direction: column;
     background-color: rgba(255, 255, 255, 0.397);
     border-radius: 0.5rem;
     width: 20rem;
@@ -54,66 +34,59 @@ const { title, valor } = Astro.props;
     margin: 2rem 1rem;
     box-shadow: 1px 1px 10px 4px #0000001f;
     transition: ease 0.2s;
+    overflow: hidden;
+  }
+  .contenedorCard:hover {
+    transition: ease 0.2s;
+    box-shadow: 3px 3px 10px 10px #0000001f;
   }
   img {
     width: 20rem;
     height: 20rem;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
+    transition: all 0.5s;
   }
-  .contenedorCard:hover {
-    transition: ease 0.2s;
-    box-shadow: 3px 3px 10px 10px #0000001f;
+  img:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
   }
   .contenedorInfo {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: start;
+    flex-direction: column;
+    padding: 20px;
+    line-height: 1px;
   }
   h2 {
     font-size: x-large;
-    font-weight: bold;
+    font-weight: 500;
   }
   p {
     font-size: medium;
-    font-weight: bold;
+    font-weight: 500;
   }
   .contenedorBtn {
     display: flex;
-    width: 100%;
-  }
-  .btnComprar {
-    display: flex;
     align-content: center;
-    padding: 1rem 2rem;
-    font-size: 1.25rem;
-    color: white;
-    background-color: #2ea018;
-    border-bottom-left-radius: 5px;
-    text-decoration: none;
-    transition: 0.3s ease;
-    width: 50%;
-  }
-  .btnComprar:hover {
-    background-color: #0c4d0f;
+    justify-content: center;
   }
   .btnAñadir {
-    display: flex;
-    align-content: center;
-    padding: 1rem 2rem;
-    font-size: 1.25rem;
-    color: white;
-    background-color: #1857a0;
-    border-bottom-right-radius: 0.5rem;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    background-color: blue;
+    color: aliceblue;
     text-decoration: none;
-    transition: 0.3s ease;
-    width: 50%;
+    border-radius: 4px;
+    height: 40px;
+    width: 282px;
+    text-align: center;
   }
   .btnAñadir:hover {
-    background-color: #082f5c;
+    background-color: #0c4d0f;
   }
-  .carrito {
-    width: 28px;
-    height: 28px;
+  a {
+    font-weight: 600;
   }
 </style>
