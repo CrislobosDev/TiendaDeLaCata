@@ -1,14 +1,10 @@
----
-
----
-
-<header>
+<div class="contenedorHeader">
   <div class="contenedorLogo">
     <a href="/">Tienda de la Cata</a>
     <span class="corazon">❤️</span>
   </div>
 
-  <div class="contenedorIcon">
+  <div class="contenedorIcono">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -23,15 +19,15 @@
         d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
       ></path>
     </svg>
-    <div class="count-products">
-      <span id="contador-productos">0</span>
+    <div class="contadorProducto">
+      <span id="numeroContador">0</span>
     </div>
-    <div class="container-cart-products hidden-cart">
-      <div class="cart-product">
-        <div class="info-cart-product">
-          <span class="cantidad-carrito">1</span>
-          <p class="titulo-carrito">Reloj de Mujer</p>
-          <span class="precio-carrito">$30.000</span>
+    <div class="contenedorCarritoProductos hiddenCart">
+      <div class="productoCarrito">
+        <div class="productoInfo">
+          <span class="productoCantidad">1</span>
+          <p class="tituloProducto">Reloj Unisex</p>
+          <span class="precioProducto">$30.000</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -47,16 +43,16 @@
           </svg>
         </div>
       </div>
-      <div class="cart-total">
+      <div class="totalCarrito">
         <h3>Total:</h3>
-        <span class="total-pagar">$30.000</span>
+        <span class="totalPagar">$40.000</span>
       </div>
     </div>
   </div>
-</header>
+</div>
 
 <style>
-  header {
+  .contenedorHeader {
     background-color: transparent;
     display: flex;
     justify-content: space-evenly;
@@ -65,15 +61,6 @@
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
   }
-  a {
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0 1rem;
-    color: black;
-  }
-  a:hover {
-    color: blueviolet;
-  }
   .contenedorLogo {
     display: flex;
     align-items: center;
@@ -81,10 +68,13 @@
     text-align: center;
     width: 12rem;
   }
-
-  .logo {
-    width: 34px;
-    height: 34px;
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 1rem;
+    color: black;
+  }
+  a:hover {
     color: blueviolet;
   }
   .corazon {
@@ -105,35 +95,39 @@
       transform: scale(1);
     }
   }
+
+  /* Carrito de compras */
+
   .carrito {
-    margin: 0;
+    width: 25px;
+    height: 25px;
     stroke: rgb(0, 0, 0);
-    width: 2rem;
-    height: 2rem;
     cursor: pointer;
   }
-
-  .contenedorIcon {
+  .icon-close {
+    width: 20px;
+    height: 20px;
+  }
+  .contenedorIcono {
     position: relative;
   }
-
-  .count-products {
+  .contadorProducto {
     position: absolute;
     top: 40%;
     right: -30%;
-
     background-color: rgb(0, 0, 0);
-    color: aliceblue;
+    color: white;
     width: 25px;
     height: 25px;
-
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
   }
-
-  .container-cart-products {
+  #numeroContador {
+    font-size: 14px;
+  }
+  .contenedorCarritoProductos {
     position: absolute;
     top: 50px;
     right: -170%;
@@ -145,76 +139,58 @@
     transition: all 0.2s;
     margin: 0 10px;
   }
-  .hidden-cart {
+  .hiddenCart {
     display: none;
   }
-
-  .icon-close {
-    width: 20px;
-    height: 20px;
-  }
-  .icon-close:hover {
-    stroke: red;
-  }
-  .titulo-carrito {
-    font-size: 20px;
-  }
-  .precio-carrito {
-    font-weight: 700;
-    font-size: 20px;
-    margin-left: 10px;
-  }
-  .cantidad-producto {
-    font-weight: 400;
-    font-size: 20px;
-  }
-  .cart-products {
-    justify-content: space-between;
+  .productoCarrito {
+    justify-content: space-around;
+    align-items: center;
     display: flex;
-    padding: 30px;
+    padding: 20px;
     align-items: center;
   }
-  .info-cart-product {
+  .productoInfo {
     display: flex;
     flex: 0.8;
     justify-content: space-between;
     margin-bottom: 20px;
     padding: 10px 10px;
   }
-  .titulo-carrito {
+  .productoCantidad {
+    font-weight: 600;
+  }
+  .tituloProducto {
     margin: 0;
   }
-  .cart-total {
+  .precioProducto {
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  .icon-close:hover {
+    stroke: blueviolet;
+  }
+  .totalCarrito {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 10px 0;
     gap: 20px;
-
     border-top: 1px solid rgba(0, 0, 0, 0.205);
   }
-  .cart-total h3 {
-    font-size: 20px;
-    font-weight: 700;
-  }
-  .total-pagar {
+  .totalPagar {
     font-size: 20px;
     font-weight: 900;
-  }
-  #contador-productos {
-    font-size: 14px;
-  }
-  h3 {
-    margin: 0;
   }
 </style>
 
 <script>
-  const btnCart = document.querySelector(".contenedorIcon");
-  const containerCartProducts = document.querySelector(
-    ".container-cart-products"
+  const btnCart = document.querySelector(".contenedorIcono");
+  const contenedorCarritoProductos = document.querySelector(
+    ".contenedorCarritoProductos"
   );
 
   btnCart.addEventListener("click", () => {
-    containerCartProducts.classList.toggle("hidden-cart");
+    contenedorCarritoProductos.classList.toggle("hiddenCart");
   });
 </script>
