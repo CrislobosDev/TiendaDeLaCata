@@ -1,12 +1,21 @@
+---
+
+---
+
 <header>
   <div class="contenedorLogo">
+    <a href="/">Tienda de la Cata</a>
+    <span class="corazon">❤️</span>
+  </div>
+
+  <div class="contenedorIcon">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      class="logo"
+      class="carrito"
     >
       <path
         stroke-linecap="round"
@@ -14,15 +23,36 @@
         d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
       ></path>
     </svg>
-
-    <a href="/">Tienda de la Cata</a>
-    <span class="corazon">❤️</span>
+    <div class="count-products">
+      <span id="contador-productos">0</span>
+    </div>
+    <div class="container-cart-products hidden-cart">
+      <div class="cart-product">
+        <div class="info-cart-product">
+          <span class="cantidad-carrito">1</span>
+          <p class="titulo-carrito">Reloj de Mujer</p>
+          <span class="precio-carrito">$30.000</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon-close"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="cart-total">
+        <h3>Total:</h3>
+        <span class="total-pagar">$30.000</span>
+      </div>
+    </div>
   </div>
-
-  <nav class="contenedorNav">
-    <a href="/ComoComprar/">Como Comprar</a>
-    <a href="/Nosotros/">Sobre Nosotros</a>
-  </nav>
 </header>
 
 <style>
@@ -47,16 +77,11 @@
   .contenedorLogo {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     text-align: center;
-    width: 15rem;
+    width: 12rem;
   }
-  .contenedorNav {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-  }
+
   .logo {
     width: 34px;
     height: 34px;
@@ -80,4 +105,116 @@
       transform: scale(1);
     }
   }
+  .carrito {
+    margin: 0;
+    stroke: rgb(0, 0, 0);
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+
+  .contenedorIcon {
+    position: relative;
+  }
+
+  .count-products {
+    position: absolute;
+    top: 40%;
+    right: -30%;
+
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  .container-cart-products {
+    position: absolute;
+    top: 50px;
+    right: -170%;
+    background-color: rgb(193, 199, 129);
+    width: 380px;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: all 0.2s;
+    margin: 0 10px;
+  }
+  .hidden-cart {
+    display: none;
+  }
+
+  .icon-close {
+    width: 20px;
+    height: 20px;
+  }
+  .icon-close:hover {
+    stroke: red;
+  }
+  .titulo-carrito {
+    font-size: 20px;
+  }
+  .precio-carrito {
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  .cantidad-producto {
+    font-weight: 400;
+    font-size: 20px;
+  }
+  .cart-products {
+    justify-content: space-between;
+    display: flex;
+    padding: 30px;
+    align-items: center;
+  }
+  .info-cart-product {
+    display: flex;
+    flex: 0.8;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+  }
+  .titulo-carrito {
+    margin: 0;
+  }
+  .cart-total {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    gap: 20px;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.205);
+  }
+  .cart-total h3 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .total-pagar {
+    font-size: 20px;
+    font-weight: 900;
+  }
+  #contador-productos {
+    font-size: 14px;
+  }
+  h3 {
+    margin: 0;
+  }
 </style>
+
+<script>
+  const btnCart = document.querySelector(".contenedorIcon");
+  const containerCartProducts = document.querySelector(
+    ".container-cart-products"
+  );
+
+  btnCart.addEventListener("click", () => {
+    containerCartProducts.classList.toggle("hidden-cart");
+  });
+</script>
