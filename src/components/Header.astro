@@ -1,7 +1,7 @@
 <div class="contenedorHeader">
   <div class="contenedorLogo">
-    <a href="/">Tienda de la Cata</a>
     <span class="corazon">❤️</span>
+    <a href="/">Tienda de la Cata</a>
   </div>
 
   <div class="contenedorIcono">
@@ -64,14 +64,13 @@
   .contenedorLogo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
     width: 12rem;
   }
   a {
     text-decoration: none;
     font-weight: bold;
-    margin: 0 1rem;
     color: black;
   }
   a:hover {
@@ -99,10 +98,15 @@
   /* Carrito de compras */
 
   .carrito {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     stroke: rgb(0, 0, 0);
     cursor: pointer;
+    border-radius: 10%;
+    transition: ease .1s;
+  }
+  .carrito:hover {
+    transform: translate(-2px);
   }
   .icon-close {
     width: 20px;
@@ -115,7 +119,7 @@
     position: absolute;
     top: 40%;
     right: -30%;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(56, 56, 56);
     color: white;
     width: 25px;
     height: 25px;
@@ -131,7 +135,7 @@
     position: absolute;
     top: 50px;
     right: -170%;
-    background-color: rgb(193, 199, 129);
+    background-color: rgb(255, 255, 255);
     width: 380px;
     z-index: 1;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -168,7 +172,7 @@
     margin-left: 10px;
   }
   .icon-close:hover {
-    stroke: blueviolet;
+    stroke: rgb(216, 22, 22);
   }
   .totalCarrito {
     display: flex;
