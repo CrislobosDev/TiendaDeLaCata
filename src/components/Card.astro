@@ -16,6 +16,20 @@ const { title, valor } = Astro.props;
   </div>
 </div>
 
+<!--    SCRIPTS    -->
+
+<script>
+  const btnAñadir = document.querySelector('.btnAñadir');
+
+// EVENTOS
+
+btnAñadir.addEventListener("click", () => {
+  console.log("Producto añadido al carrito");
+});
+</script>
+
+<!--    ESTILOS    -->
+
 <style>
   .contenedorCard {
     display: flex;
