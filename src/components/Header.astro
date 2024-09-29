@@ -1,3 +1,8 @@
+---
+const { title, valor } = Astro.props;
+
+---
+
 <div class="contenedorHeader">
   <div class="contenedorLogo">
     <span class="corazon">❤️</span>
@@ -92,7 +97,7 @@
     50% {
       transform: scale(1.4);
     }
-    100% {
+    100% {https://github.com/CrislobosDev/tiendaDeLaCata
       transform: scale(1);
     }
   }
@@ -142,7 +147,7 @@
     z-index: 1;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    transition: all 0.2s;
+    transition: all .2s;
     margin: 0 10px;
   }
   .hiddenCart {
@@ -183,6 +188,7 @@
     padding: 10px 0;
     gap: 20px;
     border-top: 1px solid rgba(0, 0, 0, 0.205);
+   
   }
   .totalPagar {
     font-size: 20px;
@@ -195,8 +201,77 @@
   const contenedorCarritoProductos = document.querySelector(
     ".contenedorCarritoProductos"
   );
+  const btnAñadir = document.querySelector(".producto-añadido");
 
+
+  // Evento para abrir y cerrar el carrito de compras
   btnCart.addEventListener("click", () => {
     contenedorCarritoProductos.classList.toggle("hiddenCart");
   });
+
+  let totalProductos = 0;
+
+  // Escuchar el evento del producto añadido
+  window.addEventListener("producto-añadido", (event) => {
+    const nuevoProducto = document.createElement("div");
+    nuevoProducto.innerHTML = `
+    <div class="productoCarrito">
+        <div class="productoInfo">
+          <span class="productoCantidad">1</span>
+          <p class="tituloProducto">{title}</p>
+          <span class="precioProducto">{valor}</span>
+          <svg
+            style="width: 20px;"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon-close"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </div>
+      </div>
+
+      <style>
+        .productoCarrito {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+  }
+  .productoInfo {
+    display: flex;
+    flex: 0.8;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+  }
+  .productoCantidad {
+    font-weight: 600;
+  }
+  .tituloProducto {
+    margin: 0;
+  }
+  .precioProducto {
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  .icon-close:hover {
+    stroke: rgb(216, 22, 22);
+  }
+        
+        </style>
+    `;
+    contenedorCarritoProductos.appendChild(nuevoProducto);
+    
+  })
+
+   
 </script>

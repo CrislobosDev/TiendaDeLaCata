@@ -16,17 +16,7 @@ const { title, valor } = Astro.props;
   </div>
 </div>
 
-<!--    SCRIPTS    -->
 
-<script>
-  const btnAñadir = document.querySelector('.btnAñadir');
-
-// EVENTOS
-
-btnAñadir.addEventListener("click", () => {
-  console.log("Producto añadido al carrito");
-});
-</script>
 
 <!--    ESTILOS    -->
 
@@ -94,3 +84,20 @@ btnAñadir.addEventListener("click", () => {
     background-color: #0e1580;
   }
 </style>
+
+<!--    SCRIPTS    -->
+
+<script>
+  const btnAñadir = document.querySelector('.btnAñadir');
+
+  btnAñadir.addEventListener("click", () => {
+    // Emitimos un evento personalizado con los datos del producto
+    const event = new CustomEvent('producto-añadido', {
+      detail: { 
+        title: "{title}", // Pasamos los datos del producto
+        valor: "{valor}"
+      }
+    });
+    window.dispatchEvent(event); // El evento se despacha a nivel de window
+  });
+</script>
